@@ -11,7 +11,7 @@ before_install:
   - source $HOME/google-cloud-sdk/path.bash.inc # modify the shell install google cloud. This sets up gcloud locally
   - gcloud components update kubectl # update kubectl into the machine given to us by travis
   - gcloud auth activate-service-account --key-file service-account.json # auth with google sdk to make changes. service account == IAM. JSON file has credentials for google cloud.
-  - glcoud config set project regal-sun-278705
+  - gcloud config set project regal-sun-278705
   - gcloud config set compute/zone australia-southeast1-a
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # login to docker using docker cli. assumes docker password and username are set in cli
