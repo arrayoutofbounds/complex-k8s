@@ -11,5 +11,6 @@ before_install:
   - gcloud config set compute/zone australia-southeast1-a
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # login to docker using docker cli. assumes docker password and username are set in cli
+  - docker build -t anmoldesai4/react-test -f ./client/Dockerfile.dev ./client # use dev version
 script:
-  - docker run -e CI=true USERNAME/docker-react yarn run test
+  - docker run -e CI=true anmoldesai4/react-test yarn run test
